@@ -5,13 +5,28 @@
 	Description: 
 */
 
-//Shapes static class (or namespace..not really sure what javascript calls this)
+//The below uses a javascript design pattern I adopted a long time ago. It's called
+//The Module Pattern (basically a static class)
 var Shapes = function() {
+	//the Square function below is executed by typing Shapes.Square()
+	//options variable is an object, that has an "itsX" and "itsY" properties
 	var Square = function (options) {
-
+		var x = options.itsX;
+		var y = options.itsY;
+		var newDiv = document.createElement('DIV');
+		newDiv.style.width = x + "px";
+		newDiv.style.height = y + "px";
+		newDiv.style.backgroundColor = "#333";
+		document.body.appendChild(newDiv);
 	},
 	Circle = function (options) {
-
+		var rad = options.itsRadius;
+		var newDiv = document.createElement('DIV');
+		newDiv.style.width = (rad*2) + "px";
+		newDiv.style.height = (rad*2) + "px";
+		newDiv.style.backgroundColor = "#999";
+		newDiv.style.borderRadius = (rad*2) + "px";
+		document.body.appendChild(newDiv);
 	};
 
 	return {
@@ -39,7 +54,7 @@ var Wacky = function() {
 
 
 	var alertMessage = "Ideally, this would be handled better through a nice HTML GUI, but due to the requirements of this project, prompts will be used instead. ";
-	alertMessage += "What are we going to create is shapes. As many as you want. These shapes will be created on the page. So here we go!" 
+	alertMessage += "What we are going to create is shapes. As many as you want. These shapes will be created on the page. So here we go!" 
 	alert(alertMessage);
 
 	var numberOfShapes = prompt("Alrighty, how many shapes do you want to create?");
@@ -49,6 +64,7 @@ var Wacky = function() {
 		return;
 	var arrayOfShapes = []; //this will hold an array of objects
 	alert("Thanks! Now, since you asked for " + numberOfShapes + " number of shapes, we are going to enter data for each of these shapes. ");
+	
 	for (var i = 0; i<numberOfShapes; i++)
 	{
 		var shapeObj = {};
@@ -69,15 +85,42 @@ var Wacky = function() {
 		{
 			case 1:
 				//for circle
-
+				shapeObj.itsType = "circle";
+				var radius = prompt("Please enter a desired radius for this circle");
+				radius = errorCheckNumber(radius);
+				shapeObj.itsRadius = radius;
+				arrayOfShapes.push(shapeObj);
 				break;
 			case 2:
 				//for square				
 				var x = prompt("Enter width");
+				x = errorCheckNumber(x);
 				var y = prompt("Enter height");
+				y = errorCheckNumber(y);
+				shapeObj.itsType = "square";
+				shapeObj.itsX = x;
+				shapeObj.itsY = y;
+				arrayOfShapes.push(shapeObj);
 				break;
 
 		}
 	}
+	alert("Please follow the console for more details!");
+	console.log("Alright, lets start generating these shapes...");
+
+	for (var index in arrayOfShapes)
+	{
+		var obj = arrayOfShapes[index];
+		switch (obj.itsType)
+		{
+			case "circle":
+				Shapes.Circle(obj);
+			break;
+			case "square":
+				Shapes.Square(obj);
+			break;
+		}
+	}
+	console.log("Done!");
 }
 
