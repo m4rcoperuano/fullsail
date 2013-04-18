@@ -11,21 +11,23 @@ var Shapes = function() {
 	//the Square function below is executed by typing Shapes.Square()
 	//options variable is an object, that has an "itsX" and "itsY" properties
 	var Square = function (options) {
-		var x = options.itsX;
-		var y = options.itsY;
-		var newDiv = document.createElement('DIV');
-		newDiv.style.width = x + "px";
-		newDiv.style.height = y + "px";
-		newDiv.style.backgroundColor = "#333";
-		document.body.appendChild(newDiv);
+		var x = options.itsX; //width for square
+		var y = options.itsY; // height for square (alright, this could have been called Rectangle, not Square)
+		var newDiv = document.createElement('DIV'); //creates a div element
+		newDiv.style.width = x + "px"; //sets its width
+		newDiv.style.height = y + "px"; //and height
+		newDiv.style.backgroundColor = "#333"; //and background color all using inline CSS
+		document.body.appendChild(newDiv); //appends it to the body
 	},
-	Circle = function (options) {
-		var rad = options.itsRadius;
-		var newDiv = document.createElement('DIV');
-		newDiv.style.width = (rad*2) + "px";
-		newDiv.style.height = (rad*2) + "px";
-		newDiv.style.backgroundColor = "#999";
-		newDiv.style.borderRadius = (rad*2) + "px";
+	Circle = function (options) { //this options variable is also an object with a property called "itsRadius"
+		var rad = options.itsRadius; //retrieve the radius
+		var newDiv = document.createElement('DIV'); //create a div
+		newDiv.style.width = (rad*2) + "px"; //set the width of that div by getting the diameter
+		newDiv.style.height = (rad*2) + "px"; //same as above
+		newDiv.style.backgroundColor = "#999"; //set background color
+		newDiv.style.borderRadius = (rad*2) + "px"; //and its border radius should be the same as one of its sides
+		//i know border radius is a CSS3 thing. I would use images, but that would take much more time needed
+		//for this project. Anyway, everyone will be using border-radius soon!
 		document.body.appendChild(newDiv);
 	};
 
