@@ -13,26 +13,32 @@ var startProgram = function() {
 	alert("This personal program of mine will calculate how much money in gas you will spend in a year");
 	//get miles per gallon from the user's vehicle
 	var mpg = prompt("Enter your car's mpg (miles per gallon)");
+	//get the fuel price per gallon right now (an approximation)
 	var estimatedFuelPrice = prompt("Enter the current price for today's gas (i.e. if gas is 3.95/gal, then enter 3.95)");
+	//get the total miles in the year they drive
 	var milesPerYear = prompt("Finally, enter the number of miles you may drive in a year");
 
-	mpg = parseInt(mpg);
-	estimatedFuelPrice = parseFloat(estimatedFuelPrice);
-	milesPerYear = parseInt(milesPerYear);
+	//start parsing some strings
+	mpg = parseInt(mpg); //get mpg int value
+	estimatedFuelPrice = parseFloat(estimatedFuelPrice); //get float value
+	milesPerYear = parseInt(milesPerYear); //get int value 
 
 	//error checking
 	if (isNaN(mpg) || isNaN(estimatedFuelPrice) || isNaN(milesPerYear))
 	{
+		//if any of these are not numbers (if user has entered characters) execute the following
 		var conf = confirm("Whoah! One of your entries was not a number. Please do not enter characters, only numbers. Click OK to restart this program");
+		//If user clicks OK in the confirm box, then restart the program, else, do nothing
 		if (conf == true) {
-			startProgram();
-			return;
+			startProgram(); //restart program
+			return; //must be here otherwise it'll continue executing the code below after it already restarts the program
 		}
 		else {
-			return;
+			return; //exit function
 		}
 	}
 
+	
 	alert("Please check the console for the result, plus additional info (F12)");
 	console.log("MPG you entered: " +mpg);
 	console.log("Fuel price you entered: " +estimatedFuelPrice);
