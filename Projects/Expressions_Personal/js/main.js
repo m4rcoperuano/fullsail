@@ -2,11 +2,16 @@
 	Name: Marco Ledesma
 	Date: April 17, 2013
 	Assignment: Expressions_Personal
+	Description: What this program does is calculate the amount of money you will spend 
+	on gas by driving x amount of miles in the year. It asks your MPG of your vehicle,
+	the current gas price right now, and the miles you'll drive in the year
 */
 
-
+//this function is inside the onclick attribute of the button in my html page
 var startProgram = function() {
+	//introduction to the program
 	alert("This personal program of mine will calculate how much money in gas you will spend in a year");
+	//get miles per gallon from the user's vehicle
 	var mpg = prompt("Enter your car's mpg (miles per gallon)");
 	var estimatedFuelPrice = prompt("Enter the current price for today's gas (i.e. if gas is 3.95/gal, then enter 3.95)");
 	var milesPerYear = prompt("Finally, enter the number of miles you may drive in a year");
