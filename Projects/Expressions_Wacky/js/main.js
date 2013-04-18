@@ -32,25 +32,36 @@ var Shapes = function() {
 	};
 
 	return {
-		Square: Square,
-		Circle: Circle
+		Square: Square, //making the functions above public. If i didnt add them to this return
+		Circle: Circle //then the functions would not be accessible using Shapes.FunctionName
 	}
 }();
 
 
+//this function is called on the onclick event (attribute is set on the button in the html page)
 var Wacky = function() {
-	var errorCheckNumber = function(num, msg) {
-		if (num !== null) {			
-			num = parseInt(num);
+	//the function below is inside the scopy of the function Wacky. Since i wont be using this
+	//outside of Wacky, then its alright to just leave this function here
+	//purpose of this function is to:
+	//get a number and an error message in its parameters
+	//the number could be a string, so i parse it just in case
+	//check if that number is truely a number, if it is, return that number
+	//else, alert the user of the error using the error message, and ask the user to try again
+	var errorCheckNumber = function(num, errMsg) {
+		if (num !== null) { //make sure a number is actually passed			
+			num = parseInt(num); //parse it into a number if its a string
 			while (isNaN(num))
-			{			
-				num = prompt(msg);
-				if (num === undefined) return undefined;
-				num = parseInt(num);
+			{	//if after parsing, I receive a NaN, then do
+				num = prompt(errMsg); //prompt the user again using the error message passed
+				//if the user decides to click on "Cancel" instead of "OK"
+				//the the below if statement will evaluate as true, and exit out of this infinite loop
+				if (num === undefined) return undefined; 
+				num = parseInt(num); //parse the number they entered on line 55
+				//if its a number, then the while statement will evaluate false
 			}
-			return num;
+			return num; //return that number
 		}		
-		return undefined;
+		return undefined; //if the if statement on line 51 was false, then return undefined
 	}
 
 
