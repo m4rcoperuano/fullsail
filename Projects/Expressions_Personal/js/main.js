@@ -38,16 +38,21 @@ var startProgram = function() {
 		}
 	}
 
-	
+	//tell the user that the results will be displayed in the console
 	alert("Please check the console for the result, plus additional info (F12)");
-	console.log("MPG you entered: " +mpg);
-	console.log("Fuel price you entered: " +estimatedFuelPrice);
-	console.log("And the total miles you will drive in the year: "+milesPerYear);
+	//recap
+	console.log("MPG you entered: " +mpg); //display mpg
+	console.log("Fuel price you entered: " +estimatedFuelPrice); // display fuel price that they entered
+	console.log("And the total miles you will drive in the year: "+milesPerYear); // display the total miles they entered
 	console.log("----------------------------------------------");
 
+	//round the results of milesPerYear/mpg, otherwise the result has 6 decimal places
+	//round the total cost as well
 	var totalGallonsUsedInYear = Math.round((milesPerYear/mpg) * 100)/100,
 		totalCost = Math.round((totalGallonsUsedInYear * estimatedFuelPrice) * 100)/100;
 
+	//output text variable will hold a long string, concatenating and also adding new line 
+	//escape character
 	var outputText = "Using very simplistic math, i came up with the following:\n";
 	outputText += "In a year, you will use " + totalGallonsUsedInYear + " gallons of fuel.\n";
 	outputText += "This means, at $" + estimatedFuelPrice + " a gallon, you will spend about $" + totalCost + "!\n";
