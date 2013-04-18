@@ -33,5 +33,12 @@ var startProgram = function() {
 	console.log("Fuel price you entered: " +estimatedFuelPrice);
 	console.log("And the total miles you will drive in the year: "+milesPerYear);
 	console.log("----------------------------------------------");
-	
+
+	var totalGallonsUsedInYear = milesPerYear/mpg,
+		totalCost = totalGallonsUsedInYear * estimatedFuelPrice;
+
+	var outputText = "Using very simplistic math, i came up with the following:\n";
+	outputText += "In a year, you will use " + totalGallonsUsedInYear + " gallons of fuel.\n";
+	outputText += "This means, at $" + estimatedFuelPrice + " a gallon, you will spend about $" + totalCost + "!\n";
+	console.log(outputText);
 }
