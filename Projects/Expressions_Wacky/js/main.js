@@ -65,44 +65,67 @@ var Wacky = function() {
 	}
 
 
-
+	//create a variable that'll hold a long string
 	var alertMessage = "Ideally, this would be handled better through a nice HTML GUI, but due to the requirements of this project, prompts will be used instead. ";
 	alertMessage += "What we are going to create is shapes. As many as you want. These shapes will be created on the page. So here we go!" 
-	alert(alertMessage);
+	alert(alertMessage); //alert that variable
 
+	//ask the user how many shapes they want to create, and store it in a variable
 	var numberOfShapes = prompt("Alrighty, how many shapes do you want to create?");
+	//run the error check function defined in the beginning of the Wacky function
 	numberOfShapes = errorCheckNumber(numberOfShapes, "Well, that wasn't a number. Your stuck in an infinite loop until you enter a number!");
 	
+	//this will evaluate true, if the user clicked on "Cancel" when i prompted them to give me
+	//the number of shapes they wanted to create. If the below is true, then it will exit the 
+	//program
 	if (numberOfShapes === undefined) 
 		return;
-	var arrayOfShapes = []; //this will hold an array of objects
+	//created an array below
+	var arrayOfShapes = []; //this will hold an array of objects (the objects used for the Shapes.Square and Circle functions)
+	//notify the user of how many shapes they entered, and that we are going to set properties for each shape
 	alert("Thanks! Now, since you asked for " + numberOfShapes + " number of shapes, we are going to enter data for each of these shapes. ");
 	
+	//commence looping through however many number of shapes they wanted to create
 	for (var i = 0; i<numberOfShapes; i++)
 	{
+		//create an object called shapeObj
 		var shapeObj = {};
+		//ask the user what kind of shape they want to create
+		//1 for Circle and 2 for rectangle
 		var shapeType = prompt("Shape #" + (i + 1) + ": I'll need a shape type. This program only supports circles and rectangles for now. So, enter 1 for circle or enter 2 for rectangle");		
 		shapeType = errorCheckNumber(shapeType, "Error, only accepted values are 1 or 2!");		
+
+		//if the user hit cancel, instead of entering 1 or 2, then exit the program
 		if (shapeType === undefined)
 			return;		
+		//if what the user entered on line 95, was not a 1 or 2 (so if they didn't type the correct option
 		while (shapeType != 1 && shapeType != 2)
 		{
+			//ask for them to enter it again
 			shapeType = prompt("Error, you must enter the number 1 or 2. 1 for Circle and 2 for Rectangle.");
+			//do an error check to make sure its a number
 			shapeType = errorCheckNumber(shapeType, "Error, you must enter the number 1 or 2. 1 for Circle and 2 for Rectangle.")
+			//again, if user has hit cancel, then exit the function
 			if (shapeType === undefined)
 				return;		
+			//once the user enters either 1 or 2, or, hits the cancel button, then it will come out of this while loop
 		}		
 
-
+		//ah, the switch statement. Here is where i ask the user for properties regarding the shape they chose
 		switch (shapeType) 
 		{
 			case 1:
 				//for circle
-				shapeObj.itsType = "circle";
+				shapeObj.itsType = "circle"; //set the object's type. I will need this 
+				//when i start doing a for loop through the array of shapes. 
+				//basically, the arrayOfShapes variable will contain an array of shape objects
+				//these shape objects will have properties, such as width/height/radius
 				var radius = prompt("Please enter a desired radius for this circle");
-				radius = errorCheckNumber(radius);
-				shapeObj.itsRadius = radius;
-				arrayOfShapes.push(shapeObj);
+				//grab the radius, check to see if its valid (if its a number)
+				radius = errorCheckNumber(radius, "What you entered was not a number!");
+				shapeObj.itsRadius = radius; //once it passes error checking, add a property to the
+				//shapeObj, setting its radius
+				arrayOfShapes.push(shapeObj); //then add that object to the array
 				break;
 			case 2:
 				//for square				
