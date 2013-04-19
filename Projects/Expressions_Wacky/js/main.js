@@ -131,9 +131,9 @@ var Wacky = function() {
 				//for square	
 				//very similar to circle, except now im getting the width and height			
 				var x = prompt("Enter width");
-				x = errorCheckNumber(x); //also doing error checking here
+				x = errorCheckNumber(x, "What you entered was not a number!"); //also doing error checking here
 				var y = prompt("Enter height");
-				y = errorCheckNumber(y); //and error checking here
+				y = errorCheckNumber(y, "What you entered was not a number!"); //and error checking here
 				shapeObj.itsType = "square"; //set its type
 				shapeObj.itsX = x; //set its width
 				shapeObj.itsY = y; //and its height
@@ -167,7 +167,7 @@ var Wacky = function() {
 
 	//all the above does is generate shapes based on what the user wanted. It appends these shapes to the
 	//body of the html page
-	
+
 	console.log("Done!");
 }
 
