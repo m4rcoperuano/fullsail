@@ -80,6 +80,11 @@ var Wacky = function() {
 	//program
 	if (numberOfShapes === undefined) 
 		return;
+	else if (numberOfShapes <= 0)
+	{//error checking for a value 0 or less
+		alert("Well, you entered a number less than 1, so, program will now close");
+		return;
+	}
 	//created an array below
 	var arrayOfShapes = []; //this will hold an array of objects (the objects used for the Shapes.Square and Circle functions)
 	//notify the user of how many shapes they entered, and that we are going to set properties for each shape
