@@ -128,35 +128,46 @@ var Wacky = function() {
 				arrayOfShapes.push(shapeObj); //then add that object to the array
 				break;
 			case 2:
-				//for square				
+				//for square	
+				//very similar to circle, except now im getting the width and height			
 				var x = prompt("Enter width");
-				x = errorCheckNumber(x);
+				x = errorCheckNumber(x); //also doing error checking here
 				var y = prompt("Enter height");
-				y = errorCheckNumber(y);
-				shapeObj.itsType = "square";
-				shapeObj.itsX = x;
-				shapeObj.itsY = y;
-				arrayOfShapes.push(shapeObj);
+				y = errorCheckNumber(y); //and error checking here
+				shapeObj.itsType = "square"; //set its type
+				shapeObj.itsX = x; //set its width
+				shapeObj.itsY = y; //and its height
+				arrayOfShapes.push(shapeObj); //and finally add it to the array of objects
 				break;
 
 		}
 	}
+	//just letting the user know
 	alert("Please follow the console for more details!");
 	console.log("Alright, lets start generating these shapes...");
 
+	//execute for loop!
 	for (var index in arrayOfShapes)
-	{
+	{//for each key inside the array
+		//grab the object at the current index
 		var obj = arrayOfShapes[index];
+		//switch statement on its type
 		switch (obj.itsType)
 		{
-			case "circle":
+			case "circle": //if circle, then use the function Shapes.Circle and pass in its 
+			//options (which is the obj)
 				Shapes.Circle(obj);
 			break;
-			case "square":
+			case "square": //same goes with square, use function Shapes.Square and pass in its
+			//options
 				Shapes.Square(obj);
 			break;
 		}
 	}
+
+	//all the above does is generate shapes based on what the user wanted. It appends these shapes to the
+	//body of the html page
+	
 	console.log("Done!");
 }
 
