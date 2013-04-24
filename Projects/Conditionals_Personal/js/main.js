@@ -23,7 +23,12 @@ function DoProject()
 
 	if (areYouSalary == "Y")
 	{
-
+		var salary = confirm("Fantastic, your salary. Unfortunately this program doesn't support salary. Please click 'OK' to run this program again. Make sure you type N when the salary prompt appears");
+		if (salary == true)
+		{
+			DoProject();
+			return;
+		}
 	}
 	else 
 	{
