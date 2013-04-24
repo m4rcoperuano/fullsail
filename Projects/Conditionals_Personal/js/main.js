@@ -41,7 +41,7 @@ function DoProject()
 		}
 		while (isNaN(howManyHoursNumber))
 		{
-			howManyHours = prompt("How many hours do you make? Enter a number!");
+			howManyHours = prompt("How many hours do you work a week? Enter a number.");
 			howManyHoursNumber = parseInt(howManyHours);
 		}
 
@@ -49,9 +49,22 @@ function DoProject()
 
 		alert("Please check the console for the results");
 		log("Hello " + name + "! Here are your results..");
+
 		if (result <= 25000)
 		{
-			log("Wow I'd hate to have your job. You only make $" + result + " a year!");
+			log("Cool! You make a decent wage. You make $" + result + " a year!");
+		}
+		else if (result <= 40000)
+		{
+			log("Not bad! You make a good wage. You make $"+result + " a year!");
+		}
+		else if (result <= 60000)
+		{
+			log("Now we're cooking! You make a pretty good wage (in most places). You make $" + result+ " a year!");
+		}
+		else
+		{
+			log("You must be doing pretty good. Very cool. You make $" + result + " a year!");
 		}
 	}
 	
