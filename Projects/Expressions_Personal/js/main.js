@@ -47,7 +47,7 @@ var startProgram = function() {
 	console.log("----------------------------------------------");
 
 	//round the results of milesPerYear/mpg, otherwise the result has 6 decimal places
-	//round the total cost as well
+	//round the total cost as well 
 	var totalGallonsUsedInYear = Math.round((milesPerYear/mpg) * 100)/100,
 		totalCost = Math.round((totalGallonsUsedInYear * estimatedFuelPrice) * 100)/100;
 
