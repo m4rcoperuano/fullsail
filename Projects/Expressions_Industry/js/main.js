@@ -12,7 +12,7 @@ var WastedTime = function() {
 	alert("Hello! In the Web Development industry, other than doing your coding/designing, you spend a lot of your "+
 		"time reading and answering emails. It becomes a pain and a huge time waster. I made this calculator to "+
 		"find out how much of your time you actually waste reading emails.");
-
+ 
 	//get the number of emails at work the user receives per day, the number of hours at work, and
 	//how much time they spend reading (in seconds)
 	var numberOfEmailsAtWorkPerDay = prompt("Enter an approximation of how many emails you read at work per day."),
