@@ -63,10 +63,12 @@ function Begin()
 	{
 		//calculate the time it'll take to travel there
 		var timeItWouldTakeInHours = planets[planetIndex].distance/speed;
+		//tell the user how long it'll take to reach the planet they chose, and in what amount of time
 		console.log("The amount of time it would take to reach " + planets[planetIndex].name + " is " + timeItWouldTakeInHours + " hours!");
 	}
 	else
 	{
+		//if planet was not found, alert this
 		alert("Sorry, the name of the planet you entered was not found in my list of planets. The available planet list is displayed in the console");
 
 	}
