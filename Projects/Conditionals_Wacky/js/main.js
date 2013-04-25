@@ -52,13 +52,16 @@ function Begin()
 			}
 			else
 			{
+				//log that we did not find the planet
 				console.log("Nope.");
 			}
 		}
 	}
 
+	//if we indeed found the planet
 	if (planetFound)
 	{
+		//calculate the time it'll take to travel there
 		var timeItWouldTakeInHours = planets[planetIndex].distance/speed;
 		console.log("The amount of time it would take to reach " + planets[planetIndex].name + " is " + timeItWouldTakeInHours + " hours!");
 	}
