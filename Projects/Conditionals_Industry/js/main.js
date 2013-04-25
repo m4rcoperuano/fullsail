@@ -5,24 +5,35 @@
 	Description: Getting the center of the webpage (coordinates)
 
 */
+
+//validation namespace (or static class, works the same)
+//i wanted to create it so i could use it like a static class
 var Validation = function() {
+	//public functions below
 	return {
+		//to validate integers
 		Integer: function(value) {
-			value = parseInt(value);
-			var flag = (isNaN(value)) ? false : true;
-			while (!flag)
+			value = parseInt(value); //parse the value to an int
+			var flag = (isNaN(value)) ? false : true; //if its NaN, then set flag to false
+			while (!flag) //if flag is false
 			{
-				value = prompt("Please enter a number!");
-				value = parseInt(value);
-				flag = (isNaN(value)) ? false : true;
+				value = prompt("Please enter  a number!"); //get a number again from the user
+				value = parseInt(value); //parse the value again to an int
+				flag = (isNaN(value)) ? false : true; //set the flag to true if the number is actually a number
 			}
+			//finally return the value
 			return value;
+
 		},
+		//to validate strings
 		JString: function (value) {
+			//if string is empty
 			while (value == "")
 			{
+				//continue asking for a string
 				value = prompt("Please enter some text!");				
 			}
+			//return string
 			return value;
 		}
 	}
@@ -49,6 +60,6 @@ function CalculateCenter()
 	result.xCoord = widthOfBrowser/2;
 	result.yCoord = heightOfBrowser/2;
 
-	console.log("We have the X Coordinate as " + result.xCoord + "px's from the left, and the Y Coordinate as "+result.yCoord+"px from the top.");
+	console.log("We have the X Coordinate as " + result.xCoord + "px's from the left, and the Y Coordinate as "+result.yCoord+"px's from the top.");
 
 }	
