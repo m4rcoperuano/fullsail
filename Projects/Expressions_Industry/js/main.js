@@ -52,7 +52,7 @@ var WastedTime = function() {
 	console.log("How much time you spend reading a single email: " + howMuchTimeSpentReading + " seconds"); //more data being ouputted
 	console.log("--------------------------------------------------------------"); //this is line is just for presentation
 
-	//set the variable "howmuchtimespentreading" to a new value, this value is set by multiplying the 
+	//set the variable "howMuchTimeSpentReading" to a new value, this value is set by multiplying the 
 	//number of emails the user gets and the amoung of time (in seconds) they spend reading these emails
 	howMuchTimeSpentReading = numberOfEmailsAtWorkPerDay * howMuchTimeSpentReading;
 	//the below divides the time they spend reading all emails, by how long they are at work (in seconds), and multiplies it by 100 to get the 
