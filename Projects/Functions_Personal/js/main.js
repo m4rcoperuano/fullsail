@@ -6,16 +6,18 @@
 	this month.
 */
 
-var __moneyThisMonth = [];
-var __lessMoneyThisMonth = [];
+var __moneyThisMonth = []; //this will hold an array of income values
+var __lessMoneyThisMonth = []; //this will hold an array of cost values
 
 function startProgram() {
+	//short little intro
 	alert("This program will calculate the total amount of money you'll have by the end of this month.");
 	alert("Alright, lets start with your income this month");
+	//use a function to continue to ask for money
 	var askForMoney = addMoney();	
-	while (askForMoney !== "error")
+	while (askForMoney !== "error") //while the return value of that function is not "error"
 	{
-		askForMoney = addMoney();
+		askForMoney = addMoney(); //keep asking for money
 	}
 	alert("Awesome! Now to enter your costs");
 	var lessMoney = reduceMoney();
