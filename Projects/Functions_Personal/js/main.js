@@ -39,9 +39,9 @@ function startProgram() {
 	console.log("-------------------------------");
 	console.log("Your total income this month is: ");
 	console.log("$" + grossIncome); //display income
-	console.log("-------------------------------");
 	console.log("The total less money you'll have this month is: ");
 	console.log(costs); //display costs
+	console.log("-------------------------------");
 	console.log("By the end of the month, you'll have this much money left: ");
 	//display total money
 	console.log("$" + (grossIncome + costs));
