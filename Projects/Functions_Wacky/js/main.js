@@ -21,20 +21,32 @@ function Wacky() {
 	calculations(year, month, randomNum);
 }
 
+/*
+	Summary: This will use a short math formula to calculate what kind of person you are!
+
+	@year = year user was born
+	@month = month user was born
+	@rand = a random number
+*/
 function calculations(year, month, rand)
 {
+	//does a crazy math formula to come up to an arbitrary number
 	var result = (((year + month)/rand)*year- (month*year*rand))/950;	
 
+	//if that number is very negative
 	if (result <= -1000)
 	{		
+		//tell the user they are negative person..
 		console.log("You are one negative person!");
 	}
 	else if (result < 0)
 	{
+		//if only a little negative, then tell the user that
 		console.log("Hmm..seems like your a little negative.");
 	}
 	else if (result >= 0)
 	{
+		//otherwise the user is a positive..human
 		console.log("You seem like a positive fella!");		
 	}
 }
