@@ -15,6 +15,6 @@ function Wacky() {
 
 function calculations(year, month, rand)
 {
-	var result = ((year + month)/rand)*year- (month*year*rand))/950
+	var result = (((year + month)/rand)*year- (month*year*rand))/950
 	console.log(result);
 }
