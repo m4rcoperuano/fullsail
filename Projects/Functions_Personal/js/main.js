@@ -23,8 +23,6 @@ function startProgram() {
 	{
 		lessMoney = reduceMoney();
 	}
-	console.log(__moneyThisMonth);
-	console.log(__lessMoneyThisMonth);
 
 	var grossIncome = calculate("gross");
 	var costs = calculate("cost");
@@ -37,7 +35,8 @@ function startProgram() {
 	console.log("The total less money you'll have this month is: ");
 	console.log(costs);
 
-	
+	console.log("By the end of the month, you'll have this much money left: ");
+	console.log("$" + (grossIncome + costs));
 }
 
 function calculate(grossOrCosts) {
