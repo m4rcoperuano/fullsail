@@ -19,25 +19,31 @@ function startProgram() {
 	{
 		askForMoney = addMoney(); //keep asking for money
 	}
+	//letting the usernow that we are entering his costs
 	alert("Awesome! Now to enter your costs");
+	//ask the user to enter their costs
 	var lessMoney = reduceMoney();
 	while (lessMoney !== "error")
 	{
+		//while the function that asks for the costs does not return an error
+		//keep asking for dat money
 		lessMoney = reduceMoney();
 	}
 
+	//use a function to calculate the gross and costs	
 	var grossIncome = calculate("gross");
 	var costs = calculate("cost");
 
+	//start outputting results
 	alert("please check the console for the result");
 	console.log("-------------------------------");
 	console.log("Your total income this month is: ");
-	console.log("$" + grossIncome);
+	console.log("$" + grossIncome); //display income
 	console.log("-------------------------------");
 	console.log("The total less money you'll have this month is: ");
-	console.log(costs);
-
+	console.log(costs); //display costs
 	console.log("By the end of the month, you'll have this much money left: ");
+	//display total money
 	console.log("$" + (grossIncome + costs));
 }
 
