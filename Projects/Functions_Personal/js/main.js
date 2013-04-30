@@ -47,49 +47,65 @@ function startProgram() {
 	console.log("$" + (grossIncome + costs));
 }
 
+/*
+	Summary: Calculates the total cost or total income using the global array variables
+
+	@grossOrCosts: This parameter is used in a switch statement. It this value is "gross"
+	then it will use the array __moneyThisMonth, if its cost, then it will use the 
+	__lessMoneyThisMonth array.
+*/
 function calculate(grossOrCosts) {
-	var theArray;
-	var subtract = false;
-	switch(grossOrCosts) {
-		case "gross":
+	var theArray; //set a variable
+	var subtract = false; //used later in the for-in loop
+	switch(grossOrCosts) { 
+		case "gross"://if grossOrCosts is "gross", use the __moneyThisMonth array
 			theArray = __moneyThisMonth;
 		break;
-		case "cost":
-			subtract = true;
-			theArray = __lessMoneyThisMonth;
+		case "cost"://if its "cost", then 
+			subtract = true; //set the subtract variable to true
+			theArray = __lessMoneyThisMonth; //use the __lessMoneyThisMonth array
 		break;		
 	}
 
+	//this variable is what will be returned
 	var outcome = 0;
 	for (var index in theArray)
 	{
+		//if subtract is false, then it will use the addition-equals operator
 		if (!subtract)
 			outcome += parseInt(theArray[index]);
-		else
+		else //else if will use the minus-equal operator
 			outcome -= parseInt(theArray[index]);
 	}
 
 	return outcome;
 }
 
+/*
+	Summary: This function will ask for the user to enter money, it will then push it to 
+	the array __moneyThisMonth.
+
+*/
 function addMoney() {
+	//ask for money
 	var money = prompt("Enter some income (basically, if this week your making 500 from something, then enter 500. You can add multiple entries. To stop these prompts, just click cancel)");
-	if (money !== null) {		
-		__moneyThisMonth.push(money);
-		return "success";
+	if (money !== null) { //if the user didnt click on cancel
+		__moneyThisMonth.push(money); //add that value to the __moneyThisMonth array
+		return "success"; //return success if they entered money
 	}
-	else {
+	else { //else return error
 		return "error";
 	}
 }
 
 function reduceMoney() {
+	//ask for a cost
 	var lessMoney = prompt("Enter your costs (one at a time. So your phone bill would be one entry. Rent would be another, and so on. Click cancel to stop these prompts)");
-	if (lessMoney !== null) {		
-		__lessMoneyThisMonth.push(lessMoney);
-		return "success";
+	if (lessMoney !== null) { //if user didnt click on cancel
+		__lessMoneyThisMonth.push(lessMoney); //add the cost value to the __lessMoneyThisMonth array
+		return "success";//return success if they entered money
 	}
-	else {
+	else { //else return error
 		return "error";
 	}	
 }
