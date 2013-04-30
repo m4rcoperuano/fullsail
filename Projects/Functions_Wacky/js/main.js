@@ -7,11 +7,17 @@
 */
 
 function Wacky() {
+	//quick intro
 	alert("Welcome..Let me ask you a few questions and I'll try to figure out what kind of person you are");
+	//get the year the person was born
 	var year = parseInt(prompt("What year were you born?"));
+	//get the month they were born
 	var month = parseInt(prompt("What month were you born on?"));
+	//get a random number from the user
 	var randomNum = parseInt(prompt("Enter your favorite number"));
+	//tell the user to check the console
 	alert("check the console for results");
+	//begin calculations!
 	calculations(year, month, randomNum);
 }
 
